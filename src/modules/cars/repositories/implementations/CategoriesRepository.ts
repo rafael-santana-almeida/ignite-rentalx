@@ -9,22 +9,14 @@ import {
 class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>;
 
-  private static INSTACE: CategoriesRepository;
-
-  private constructor() {
+  constructor() {
     this.repository = getRepository(Category);
-  }
 
-  public static getInstance(): CategoriesRepository {
-    if (!CategoriesRepository.INSTACE) {
-      CategoriesRepository.INSTACE = new CategoriesRepository();
-    }
-
-    return CategoriesRepository.INSTACE;
+    console.log(this.repository);
   }
 
   async index(): Promise<Category[]> {
-    const categories = this.repository.find();
+    const categories = await this.repository.find();
 
     return categories;
   }
