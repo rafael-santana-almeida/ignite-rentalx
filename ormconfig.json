@@ -2,7 +2,7 @@
   "type": "postgres",
   "host": "localhost",
   "username": "postgres",
-  "password": "",
+  "password": "gaara.27",
   "database": "rentx",
   "entities": [
     "./src/modules/**/entities/*.ts"
