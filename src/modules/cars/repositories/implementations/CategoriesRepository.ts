@@ -1,6 +1,6 @@
 import { getRepository, Repository } from "typeorm";
 
-import Category from "../../entities/Category";
+import { Category } from "../../entities/Category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
@@ -11,8 +11,6 @@ class CategoriesRepository implements ICategoriesRepository {
 
   constructor() {
     this.repository = getRepository(Category);
-
-    console.log(this.repository);
   }
 
   async index(): Promise<Category[]> {
@@ -37,4 +35,4 @@ class CategoriesRepository implements ICategoriesRepository {
   }
 }
 
-export default CategoriesRepository;
+export { CategoriesRepository };

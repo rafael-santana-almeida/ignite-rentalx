@@ -2,9 +2,14 @@
   "type": "postgres",
   "host": "localhost",
   "username": "postgres",
-  "password": "",
+  "password": "gaara.27",
   "database": "rentx",
-  "migrations": ["./src/database/migrations/*.ts"],
+  "entities": [
+    "./src/modules/**/entities/*.ts"
+  ],
+  "migrations": [
+    "./src/database/migrations/*.ts"
+  ],
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }
