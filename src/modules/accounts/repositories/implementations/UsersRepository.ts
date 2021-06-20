@@ -2,9 +2,9 @@ import { getRepository, Repository } from "typeorm";
 
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { User } from "../../entities/User";
-import { IUSersRepository } from "../IUsersRepository";
+import { IUsersRepository } from "../IUsersRepository";
 
-class UsersRepository implements IUSersRepository {
+class UsersRepository implements IUsersRepository {
   private repositoy: Repository<User>;
 
   constructor() {
