@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
-
 import { CreateCarUseCase } from "./CreateCarUseCase";
 
 class CreateCarController {
