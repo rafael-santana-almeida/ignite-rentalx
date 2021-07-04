@@ -5,7 +5,7 @@ import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/Us
 import { AppError } from "@shared/errors/AppError";
 
 interface ITokenPayload {
-  user_id: string;
+  sub: string;
 }
 
 export async function ensureAuthenticated(
@@ -22,21 +22,21 @@ export async function ensureAuthenticated(
   const [, token] = authHeader.split(" ");
 
   try {
-    const { user_id } = verify(
+    const { sub } = verify(
       token,
       "88faa79357f4c8e308162b2aece7259c"
     ) as ITokenPayload;
 
     const usersRepository = new UsersRepository();
 
-    const user = await usersRepository.findById(user_id);
+    const user = await usersRepository.findById(sub);
 
     if (!user) {
       throw new AppError("User does not exists!", 401);
     }
 
     request.user = {
-      id: user_id,
+      id: sub,
     };
 
     return next();
